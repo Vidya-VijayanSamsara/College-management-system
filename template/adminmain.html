@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{%static 'styles/adminmain.css' %}">
+</head>
+<body id="bg" style="background-image:url('{% static 'images/admin_bg.jpg' %}')">
+ <header>
+    <div class="user">
+        <img src="{%static 'images/profile_picture.jpeg' %}" id="photo" alt="Profilepicture">
+        {% if d %}
+        <h3 class="name">{{d.admin_name}}</h3>
+        <p class="post">Administration</p>
+         {% endif %}
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#education">Notification</a></li>
+            <li><a href="#edit">Edit/Update Personal</a></li>
+            <li><a href="#portfolio">View Teachers List</a></li>
+            <li><a href="#contact">LogOut</a></li>
+        </ul>
+    </nav>
+ </header>
+<br>
+<div id="menu" class="fas fa-bars">
+
+</div>
+<!--home section-->
+<section class="home" id="home">
+
+  <h3>HI THERE !</h3>
+  {% if d %}
+  <h1>I'm <span>{{d.admin_name}}</span></h1>
+
+  <p>The beautiful thing about learning is that no one can take it away from you.
+      You may never know what results come of your action, but if you do nothing there will be no result. . .
+  </p>
+  <a href="#about"><button class="btn">About Me<i class="fas fa-user"></i></button></a>
+</section>
+<!--home ends-->
+<!--about section starts-->
+
+<section class="about" id="about">
+<h1 class="heading"><span>about</span>Me</h1>
+<div class="row">
+   <div class="info">
+    <h3><span>name:</span>{{d.admin_name}}</h3>
+    <h3><span>post:</span>{{d.}}</h3>
+    <a href="#"><Button class="btn" ><span>View</span> All <span>details</span> <i class="fas fa-eye"></i></Button></a>
+   </div>
+   {% endif %}
+   <div class="counter">
+
+    <div class="box">
+        <span>2</span>
+        <h3>years of Experience</h3>
+    </div>
+    <div class="box">
+        <span>B.Tech</span>
+        <h3>Qualification</h3>
+    </div>
+    <div class="box">
+        <span>2017</span>
+        <h3>Year Of Joining</h3>
+    </div>
+    <div class="box">
+        <span>Kollam,kerala</span>
+        <h3>Place</h3>
+    </div>
+   </div>
+</div>
+</section>
+ <!--about section ends-->
+ <!--Contact section starts-->
+<section class="contact" id="contact">
+    <h1 class="heading"><span>Contact</span>Me</h1>
+    <div class="row">
+
+        <div class="content">
+            <h3 class="title">Contact Info</h3>
+            <div class="info">
+                <h3><i class="fas fa-envelope"></i>sample@gmail.com</h3>
+                <h3><i class="fas fa-phone"></i>+9112345678</h3>
+                <h3><i class="fas fa-phone"></i>+111-222-3333</h3>
+                <h3><i class="fas fa-map-marker-alt"></i>Kerala,India 670001 </h3>
+            </div>
+        </div>
+        <form action="">
+            <i class="fas fa-phone"></i>
+            <input type="text" placeholder="name" class="box">
+            <input type="email" placeholder="email" class="box">
+            <input type="text" placeholder="Date" class="box">
+            <textarea name="" id="" cols="30" rows="10" class="box message" placeholder="Message"></textarea>
+            <button type="submit" class="btn">Send Email<i class="fas fa-paper-plane"></i></button> <button type="submit" class="btn">View Emails<i class="fas fa-eye"></i></button>
+        </form>
+    </div>
+</section>
+
+<!--Contact section ends-->
+ <!--Notification starts-->
+<section class="notification" id="notification">
+ <h1 class="heading"><span>Send</span>Notification</h1>
+<div class="container">
+    <form action="">
+        <i class="fas fa-paper-plane"></i>
+        <div class="input-group">
+            <label>Name</label>
+            <input type="text" placeholder="Enter name">
+        </div>
+        <div class="input-group">
+            <label>Phone No</label>
+            <input type="tel" placeholder="1234567890">
+        </div>
+        <div class="input-group">
+            <label>Email Id</label>
+            <input type="email" placeholder="Enter email">
+        </div>
+        <div class="input-group">
+            <label>Message</label>
+            <Textarea rows="5" placeholder="enter the message"></Textarea>
+        </div>
+        <button type="submit" class="btn">Submit </button>
+    </form>
+  </div>
+</section>
+<!--Notification ends-->
+<!--edit or update personal details starts-->
+ <section class="edit" id="edit">
+     <h1 class="heading"><span>Update </span>Me</h1>
+        <div class="container">
+           <form action="admin_update" method="post" enctype="multipart/form-data" id="register">
+               {% csrf_token %}
+            {% if d %}
+           <i class="fas fa-upload"></i>
+            <label>NAme</label>
+            <br>
+            <input type="text" name="admin_name" id="name" class="box" value="{{d.admin_name}}">
+            <br><br>
+            <label>Username</label>
+            <br>
+            <input type="text" name="admin_username" id="username" class="box" value="{{d.admin_username}}">
+            <br><br>
+            <label>Email</label>
+            <br>
+            <input type="text" name="admin_mail" id="email" class="box" value="{{d.admin_mail}}">
+            <br><br>
+            <label>Qualification</label>
+            <br>
+            <input type="text" name="admin_qualification" id="qualification" class="box" placeholder="Enter Qualification">
+            <br><br>
+            <label>Post</label>
+            <br>
+            <input type="text" name="admin_post" id="post"  class="box" placeholder="Enter post">
+            <br><br>
+            <label>Year of Joining</label>
+            <br>
+            <input type="text" name="admin_yoj" id="yoj" class="box" placeholder="Enter Year of joining">
+            <br><br>
+            <label>Experience</label>
+            <br>
+            <input type="text" name="admin_experience" id="experience" class="box" placeholder="Enter Experience">
+            <br><br>
+            <label>Place</label>
+            <br>
+            <input type="text" name="admin_place" id="place" class="box" placeholder="Enter place">
+            <br><br>
+            <button type="submit" class="btn">Update</button>
+            {% endif%}
+           </form>
+        </div>
+</section>
+<!--edit or update personal details starts-->
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="{%static 'script/adminmain.js' %}"></script>
+
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+     <link rel="stylesheet" type="text/css" href="{%static 'styles/studentmain.css' %}">
+</head>
+<body id="bg" style="background-image:url('{% static 'images/student_bg.jpg' %}')">
+<div class="banner">
+ <header>
+    <div class="user">
+        <img src="{%static 'images/profile_picture.jpeg' %}" alt="Profilepicture">
+        {% if d %}
+        <h3 class="name"> {{d.student_name}}</h3>
+         {% endif %}
+        <p class="post">font end developer</p>
+    </div>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Personal Info</a></li>
+            <li><a href="#education">Notification</a></li>
+            <li><a href="#portfolio">Assignment Details</a></li>
+            <li><a href="#portfolio">Exam Details</a></li>
+            <li><a href="#contact">LogOut</a></li>
+        </ul>
+    </nav>
+ </header>
+
+<div id="menu" class="fas fa-bars">
+
+</div>
+<!--home section-->
+<section class="home" id="home">
+
+  <h3>HI THERE !</h3>
+  {% if d %}
+  <h1>I'm <span>{{d.student_name}}</span></h1>
+  <p>A person who never made a mistake never tried anything new...
+      The expert in anything was once a beginner....
+  </p>
+  <a href="#about"><button class="btn">About Me<i class="fas fa-user"></i></button></a>
+</section>
+<!--home ends-->
+<!--about section starts-->
+<!--about section ends-->
+<section class="about" id="about">
+<h1 class="heading"><span>about</span>Me</h1>
+<div class="row">
+   <div class="info">
+    <h3><span>name:</span> {{d.student_name}} </h3>
+    <h3><span>Qualification:</span>B.Tech</h3>
+    <h3><span>post:</span>Administrator</h3>
+    <h3><span>language:</span>English</h3>
+    <a href="#"><Button class="btn">Download CV <i class="fas fa-download"></i></Button></a>
+   </div>
+    {% endif %}
+   <div class="counter">
+
+    <div class="box">
+        <span>2+</span>
+        <h3>years of Experience</h3>
+    </div>
+    <div class="box">
+        <span>100+</span>
+        <h3>projects Completed</h3>
+    </div>
+    <div class="box">
+        <span>430+</span>
+        <h3>Happy clients</h3>
+    </div>
+    <div class="box">
+        <span>12+</span>
+        <h3>Awards</h3>
+    </div>
+   </div>
+</div>
+</section>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="{%static 'script/studentmain.js' %}"></script>
+</body>
+</html>

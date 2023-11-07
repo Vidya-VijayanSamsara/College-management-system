@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
+    <title>STUDENT LOGIN/REGISTER</title>
+     <link rel="stylesheet" type="text/css" href="{%static 'styles/student_register_login.css' %}">
+</head>
+<body id="bg" style="background-image:url('{% static 'images/student_bg.jpg' %}')" >
+    <div class="banner">
+        <div class="navbar">
+            <img src="{% static 'images/logo.png' %}" class="logo">
+            <ul>
+                <li><a href="home">Home</a></li>
+            </ul>
+        </div>
+        <div class="form-box" >
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Login</button>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+            </div>
+            <form action="login" method="post" enctype="multipart/form-data" id="login" class="input-group">
+                {% csrf_token %}
+                <input type="text" class="input-field" name="username" placeholder="User Name" required>
+                <input type="password" class="input-field" name="password" placeholder="Enter Password" required>
+                <button type="submit" class="submit-btn">Log In</button></form>
+            <form action="student_register" method="post" enctype="multipart/form-data" id="register" class="input-group">
+                {% csrf_token %}
+                <input type="text" class="input-field" name="student_name" placeholder="Name" required>
+                <input type="text" class="input-field" name="student_username" placeholder="User Name" required>
+                <input type="email" class="input-field" name="student_mail" placeholder="Email Id" required>
+                <input type="password" class="input-field" name="student_pwd" placeholder="Enter Password" required>
+                <button type="submit" class="submit-btn">Register</button></form>
+            </div>
+    </div>
+    <script>
+        var x= document.getElementById("login");
+        var y= document.getElementById("register");
+        var z= document.getElementById("btn");
+        function register(){
+            x.style.left="-400px";
+            y.style.left="50px";
+            z.style.left="110px";
+        }
+        function login(){
+            x.style.left="50px";
+            y.style.left="450px";
+            z.style.left="0px";
+        }
+    </script>
+</body>
+</html>

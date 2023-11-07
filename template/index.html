@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta http-equiv="refresh" content="30">
+    <title>COLLEGE NAME HERE</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'styles/home.css' %}">
+</head>
+<body id="bg" style="background-image:url('{% static 'images/college.jpg' %}')">
+    <div class="banner">
+        <div class="navbar">
+            <img src="{% static 'images/logo.png' %}" class="logo">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <h1>COLLEGE NAME HERE</h1>
+
+            <P>Learn as much as you can while you are young, since life becomes too busy later </P>
+            <div>
+                <a href="admin_register_login"><button type="button"><span></span>ADMIN</button></a>
+                <a href="staff_register_login"><button type="button"><span></span>TEACHER</button></a>
+                <a href="student_register_login"><button type="button"><span></span>STUDENT</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
